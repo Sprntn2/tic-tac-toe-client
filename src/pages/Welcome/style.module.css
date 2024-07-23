@@ -1,0 +1,73 @@
+.welcomePage{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--baseBlue);
+}
+
+.upDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding-top: 50px;
+    height: 100px;
+}
+
+.downDiv{
+    height: 150px;
+    width: 100%;
+    /* padding: 0; */
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.xsvg1{
+    width: 100px;
+    height: 100px;
+}
+
+.osvg1{
+    width: 90px;
+    height: 90px;
+}
+
+.xsvg2{
+    width: 200px;
+    height: 200px;
+}
+
+.osvg2{
+    width: 150px;
+    height: 400px;
+    padding-bottom: 150px;
+}
+
+.logoContainer{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blurCircle{
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--lightBlue);
+    border-radius: 50%;
+    filter: blur(10px);
+}
+
+.logoImg{
+    
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}

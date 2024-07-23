@@ -1,0 +1,19 @@
+.gameSquare{
+    width: calc(100% / 3 - 10px);
+    aspect-ratio:  1 / 1;
+    border-radius: 10px;
+    background-color: var(--squareBG);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -5px 5px 0px #000;
+    border: 5px solid #000;
+}
+
+.loss{
+    background-color: #d1d1d1;
+}
+
+/* .loss svg path{
+    fill: #9b9b9b;
+} */

@@ -1,0 +1,29 @@
+.usersWrapper{
+    width: 100%;
+    
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+
+    
+}
+
+.rotateBG{
+    height: 110%;
+    width: 120%;
+    
+    position: absolute;
+    top: 0;
+    transform: translateX(-8%) translateY(-5%) rotate(-1deg);
+    background-color: var(--btnTextBG);
+}
+
+.users{
+    height: 100px;
+    width: 100%;
+    background-color: var(--btnColor);
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+    z-index: 1;
+}

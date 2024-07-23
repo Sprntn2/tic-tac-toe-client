@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root{
+  /* --baseBlue: #23ACF9; */
+  --baseBlue: #3D7AD6;
+  --lightBlue: #23ACF9;
+  --btnTextBG: #B28100;
+  --btnColor: #FCD015;
+  --btnBottomBorder: #FBB500;
+  --squareBG: #C9F9FC;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+}
+
+#root{
+  height: 100vh;
+  aspect-ratio: 1 / 2;
+}
+
+button{
+  background: none;
+  border: none;
+}
+
+.page{
+  padding: 5%;
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--baseBlue);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}

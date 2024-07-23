@@ -1,0 +1,23 @@
+.wrapper{
+    padding: 5px;
+    width: 100%;
+    border: 8px solid #000;
+    border-radius: 20px;
+    box-shadow: -8px 4px 0px #000;
+    background-color: #fff;
+    position: relative;
+}
+
+.wrapper .text{
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 30px;
+    color: #fff;
+    text-shadow:
+    -4px -4px 0px #000, /* Top-left shadow */
+    4px -4px 0px #000, /* Top-right shadow */
+    4px  4px 0px #000, /* Bottom-right shadow */
+    -4px  4px 0px #000;
+}

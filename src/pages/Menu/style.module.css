@@ -1,0 +1,13 @@
+/* .menuPage{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+} */
+
+.settingsBtnDiv{
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

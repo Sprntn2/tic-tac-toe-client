@@ -1,0 +1,38 @@
+.backDiv{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+}
+
+.contentDiv{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+}
+
+.contentDiv h3{
+    font-size: 40px;
+    color: #cdcdcd;
+    text-shadow: 
+        -2px -2px 0 #000, 
+        2px -2px 0 #000, 
+        -2px 2px 0 #000, 
+        2px 2px 0 #000; 
+}
+
+.text{
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 
+        -2px -2px 0 #000, 
+        2px -2px 0 #000, 
+        -2px 2px 0 #000, 
+        2px 2px 0 #000; 
+}
