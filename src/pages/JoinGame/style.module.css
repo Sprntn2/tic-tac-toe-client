@@ -11,6 +11,7 @@
     outline: none;
     font-size: 30px;
     font-family: "Luckiest Guy", cursive;
+    width: 100%;
 }
 
 .wrapper{
@@ -41,11 +42,15 @@
     font-weight: 400;
     font-size: 45px;
     color:#fff; 
-    text-shadow:
-    -4px -4px 0px #000, /* Top-left shadow */
-    4px -4px 0px #000, /* Top-right shadow */
-    4px  4px 0px #000, /* Bottom-right shadow */
-    -4px  4px 0px #000; /* Bottom-left shadow */
+    text-shadow: 
+        4px 4px 0 var(--btnTextBG),
+        -4px 4px 0 var(--btnTextBG),
+        4px -4px 0 var(--btnTextBG),
+        -4px -4px 0 var(--btnTextBG),
+        4px 0px 0 var(--btnTextBG),
+        0px 4px 0 var(--btnTextBG),
+        0px -4px 0 var(--btnTextBG),
+        -4px 0px 0 var(--btnTextBG);
 
     padding: 0 20px;
 }
