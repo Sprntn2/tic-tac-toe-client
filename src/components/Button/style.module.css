@@ -4,7 +4,8 @@
     border-bottom: 1px solid #fff;
     border-left: 1px solid #fff;
     border-right: 1px solid #fff;
-    height: 90px;
+    height: 75px;
+    max-width: 75%;
     border-radius: 50px;
     box-shadow: 0px 10px 0px var(--btnBottomBorder);
     display: flex;
@@ -17,12 +18,16 @@
     padding: 30px 60px;
     
     text-shadow:
-    -4px -4px 0px var(--btnTextBG), /* Top-left shadow */
-    4px -4px 0px var(--btnTextBG), /* Top-right shadow */
-    4px  4px 0px var(--btnTextBG), /* Bottom-right shadow */
-    -4px  4px 0px var(--btnTextBG); /* Bottom-left shadow */
+    4px 0px 0 var(--btnTextBG),
+    0px 4px 0 var(--btnTextBG),
+    0px -4px 0 var(--btnTextBG),
+    -4px 0px 0 var(--btnTextBG),
+    -4px -4px 0px var(--btnTextBG), 
+    4px -4px 0px var(--btnTextBG),
+    4px  4px 0px var(--btnTextBG),
+    -4px  4px 0px var(--btnTextBG);
 }
 
 .btn h1{
-    font-size: 30px;
+    font-size: 20px;
 }

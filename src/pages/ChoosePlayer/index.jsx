@@ -55,7 +55,6 @@ function ChoosePlayer({isSolo}){
 
     return(
         <div className={`${styles.choosePlayerPage} page`}>
-            choose player page
             <div className={styles.backDiv}>
                 <BackBtn/>
             </div>

@@ -15,14 +15,27 @@
     font-weight: 400;
     /* -webkit-text-stroke: 2px var(--btnTextBG); */
 
-    /* text-shadow: -3px -3px 0 var(--btnTextBG), 3px 3px 0 var(--btnTextBG),
-               0 -3px 0 var(--btnTextBG), 0 3px 0 var(--btnTextBG); */
-
     text-shadow:
-    -4px -4px 0px var(--btnTextBG), /* Top-left shadow */
-    4px -4px 0px var(--btnTextBG), /* Top-right shadow */
-    4px  4px 0px var(--btnTextBG), /* Bottom-right shadow */
-    -4px  4px 0px var(--btnTextBG); /* Bottom-left shadow */
+    4px 0px 0 var(--btnTextBG),
+    0px 4px 0 var(--btnTextBG),
+    0px -4px 0 var(--btnTextBG),
+    -4px 0px 0 var(--btnTextBG),
+    -4px -4px 0px var(--btnTextBG), 
+    4px -4px 0px var(--btnTextBG),
+    4px  4px 0px var(--btnTextBG),
+    -4px  4px 0px var(--btnTextBG);
+
+/* 
+    text-shadow: 
+        4px 4px 0 var(--btnTextBG),
+        -4px 4px 0 var(--btnTextBG),
+        4px -4px 0 var(--btnTextBG),
+        -4px -4px 0 var(--btnTextBG),
+        4px 0px 0 var(--btnTextBG),
+        0px 4px 0 var(--btnTextBG),
+        0px -4px 0 var(--btnTextBG),
+        -4px 0px 0 var(--btnTextBG), 
+        */
 }
 
 .btn h1{

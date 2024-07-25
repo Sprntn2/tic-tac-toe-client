@@ -9,6 +9,7 @@ import Button from '../../components/Button'
 import Menu from '../Menu'
 import WaitingOpponent from '../WaitingOpponent'
 import PlayersBar from '../../components/PlayersBar'
+import PlayerBarImage from '../../components/PlayerBarImage'
 
 function Game({isSolo}){
 
@@ -17,7 +18,7 @@ function Game({isSolo}){
     // const demoGame = new Array(9).fill(2)
     const [board, setBoard] = useState(new Array(9).fill(0))
     const [victory, setVictory] = useState()
-    const [wins, setWins] = useState({1: 5, 2: 7})//for example need to be {1:0, 2:0}
+    const [wins, setWins] = useState({1: 0, 2: 0})//for example need to be {1:0, 2:0}
     console.log("board:", board)
     
     //let isYourTurn;// = userSign == 1//x is the first
@@ -119,6 +120,9 @@ function Game({isSolo}){
             socketIO.on('two-moves-victory', (data) => {
                 console.log('two-moves-victory');
                 console.log("test board")
+                setWins(old => {
+                    return {[data.winSign]: old[data.winSign] + 1, [data.winSign % 2 + 1]: old[data.winSign % 2 + 1]}
+                })
                 setVictory(data.indexes)
                 setBoard(old => {
                     const result = old.map((v,i) => {
@@ -185,7 +189,7 @@ function Game({isSolo}){
         socketIO.on('victory', (data) => {
             console.log("victory, data:", data)
             setWins(old => {
-                return {[data.sign]: old.wins[data.sign] + 1, [data.sign % 2 + 1]: old.wins[data.sign % 2 + 1]}
+                return {[data.sign]: old[data.sign] + 1, [data.sign % 2 + 1]: old[data.sign % 2 + 1]}
             })
             setVictory(data.indexes)
             setBoard(old => {
@@ -316,12 +320,39 @@ function Game({isSolo}){
     return(
         // <div className={`${styles.gamePage} page`}>
         <div className={styles.gamePage}>
-
-            game page
-            
-            <PlayersBar victory={victory}/>
-
             <div className={styles.usersWrapper}>
+                <div className={styles.users}>
+                    {!victory ? 
+                    <>
+                        <PlayerBarImage name={userDetails?.name || 'player'} wins={wins[userSign]} image={userDetails?.avatar} userSign={userSign} isYourTurn={isYourTurn}/>
+                        <PlayerBarImage name={opponentDetails?.name || 'opponent'} wins={wins[userSign % 2 + 1]} image={opponentDetails?.avatar} userSign={userSign % 2 + 1} isYourTurn={!isYourTurn}/>
+                    </> : 
+                    victory.length == 3?
+                    <>
+                        {
+                            board[victory[0]] == userSign ? 
+                            <>
+                                <PlayerBarImage winner={true} wins={wins[userSign]} image={userDetails?.avatar} userSign={userSign} isYourTurn={true}/>
+                                <h3 className={styles.text}>{userDetails?.name || 'player'} win!!</h3>
+                            </>:
+                            <>
+                                <PlayerBarImage winner={true} wins={wins[userSign % 2 + 1]} image={opponentDetails?.avatar} userSign={userSign % 2 + 1} isYourTurn={true}/>
+                                <h3 className={styles.text}>{opponentDetails?.name || 'opponent'} win!!</h3>
+                            </>
+                        }
+                        {/* <PlayerBarImage wins={wins[board[victory[0]]] }/> */}
+                    </>
+                     : 
+                    <>
+                        <PlayerBarImage wins={wins[userSign]} image={userDetails?.avatar} userSign={userSign} isYourTurn={false}/>
+                        <h3 className={styles.text}>draw!</h3>
+                        <PlayerBarImage wins={wins[userSign % 2 + 1]} image={opponentDetails?.avatar} userSign={userSign % 2 + 1} isYourTurn={false}/>
+                    </>}
+                </div>
+                <div className={styles.rotateBG}></div>
+            </div>
+
+            {/* <div className={styles.usersWrapper}>
                 {!victory ?
                 <div className={styles.users}>
                     <div className={styles.user}>
@@ -332,7 +363,6 @@ function Game({isSolo}){
                                     <div className={styles.shape}>
                                         {userSign == 1? <Xshape/> :<Oshape/>}
                                     </div>
-                                    {/* <div className={styles.wins}>wins: 0</div> */}
                                     <div className={styles.wins}>wins: {wins[userSign]}</div>
                                 </div>
                             </div>
@@ -347,7 +377,6 @@ function Game({isSolo}){
                                     <div className={styles.shape}>
                                         {userSign != 1? <Xshape/> :<Oshape/>}
                                     </div>
-                                    {/* <div className={styles.wins}>wins: 0</div> */}
                                     <div className={styles.wins}>wins: {wins[userSign % 2 + 1]}</div>
                                 </div>
                             </div>
@@ -357,7 +386,7 @@ function Game({isSolo}){
                 </div> :
                 victory.length == 3?
                 <div className={styles.winner}>
-                    {/* <div className={styles.user}> */}
+                    
                         <div className={styles.winnerImgContainer}>
                             {board[victory[0]] == userSign ? 
                             <>
@@ -365,7 +394,7 @@ function Game({isSolo}){
                                 <div className={styles.winnerShape}>
                                     {board[victory[0]] == 1 ? <Xshape/> :<Oshape/>}
                                 </div>
-                                {/* <div className={styles.winnerWins}>wins: 0</div> */}
+                                
                                 <div className={styles.winnerWins}>wins: {wins[userSign]}</div>
                                 <h3 className={styles.text}>{userDetails?.name || 'player'} win!!</h3>
                             </> : 
@@ -374,13 +403,13 @@ function Game({isSolo}){
                                 <div className={styles.winnerShape}>
                                     {board[victory[0]] == 1 ? <Xshape/> :<Oshape/>}
                                 </div>
-                                {/* <div className={styles.winnerShape}>wins: 0</div> */}
+                                
                                 <div className={styles.winnerShape}>wins: {wins[userSign % 2 + 1]}</div>
                                 <h3 className={styles.text}>{opponentDetails?.name || 'opponent'} win!!</h3>
                             </>
                             }
                         </div>
-                    {/* </div> */}
+                    
                 </div> : 
                 <div className={styles.draw}>
                     <div className={styles.user}>
@@ -391,7 +420,7 @@ function Game({isSolo}){
                                     <div className={styles.shape}>
                                         {userSign == 1? <Xshape/> :<Oshape/>}
                                     </div>
-                                    {/* <div className={styles.wins}>wins: 0</div> */}
+                                    
                                     <div className={styles.wins}>wins: {wins[userSign]}</div>
                                 </div>
                             </div>
@@ -409,7 +438,7 @@ function Game({isSolo}){
                                         <div className={styles.shape}>
                                             {userSign != 1? <Xshape/> :<Oshape/>}
                                         </div>
-                                        {/* <div className={styles.wins}>wins: 0</div> */}
+                                        
                                         <div className={styles.wins}>wins: {wins[userSign % 2 + 1]}</div>
                                     </div>
                                 </div>
@@ -422,7 +451,7 @@ function Game({isSolo}){
                 </div>
                 }
                 <div className={styles.rotateBG}></div>
-            </div>
+            </div> */}
             <div className={styles.boardSection}>
                 <Wrapper>
                     <div className={styles.boardContainer}>
@@ -435,6 +464,12 @@ function Game({isSolo}){
                     </div>
                 </Wrapper>
             </div>
+            {/* {victory? 
+                <div className={styles.endGameBtns}>
+                    <Button func={reset} text="play again"/>
+                    <Button func={backToMain} text="back to main"/>
+                </div> : 
+                <Button func={backToMain} text="back"/>} */}
             {victory? 
             <>
                 <Button func={reset} text="play again"/>

@@ -17,11 +17,15 @@
     font-family: "Luckiest Guy", cursive;
     font-weight: 400;
     color: #fff;
-    text-shadow:
-    -4px -4px 0px #000, /* Top-left shadow */
-    4px -4px 0px #000, /* Top-right shadow */
-    4px  4px 0px #000, /* Bottom-right shadow */
-    -4px  4px 0px #000;
+    text-shadow: 
+        4px 4px 0 var(--btnTextBG),
+        -4px 4px 0 var(--btnTextBG),
+        4px -4px 0 var(--btnTextBG),
+        -4px -4px 0 var(--btnTextBG),
+        4px 0px 0 var(--btnTextBG),
+        0px 4px 0 var(--btnTextBG),
+        0px -4px 0 var(--btnTextBG),
+        -4px 0px 0 var(--btnTextBG);
 }
 
 .avatars{

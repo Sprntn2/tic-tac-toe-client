@@ -19,10 +19,14 @@
     font-size: 40px;
     color: #cdcdcd;
     text-shadow: 
-        -2px -2px 0 #000, 
-        2px -2px 0 #000, 
-        -2px 2px 0 #000, 
-        2px 2px 0 #000; 
+        2px 2px 0 var(--btnTextBG),
+        -2px 2px 0 var(--btnTextBG),
+        2px -2px 0 var(--btnTextBG),
+        -2px -2px 0 var(--btnTextBG),
+        2px 0px 0 var(--btnTextBG),
+        0px 2px 0 var(--btnTextBG),
+        0px -2px 0 var(--btnTextBG),
+        -2px 0px 0 var(--btnTextBG);
 }
 
 .text{
@@ -31,8 +35,12 @@
     font-size: 30px;
     color: #fff;
     text-shadow: 
-        -2px -2px 0 #000, 
-        2px -2px 0 #000, 
-        -2px 2px 0 #000, 
-        2px 2px 0 #000; 
+        2px 2px 0 var(--btnTextBG),
+        -2px 2px 0 var(--btnTextBG),
+        2px -2px 0 var(--btnTextBG),
+        -2px -2px 0 var(--btnTextBG),
+        2px 0px 0 var(--btnTextBG),
+        0px 2px 0 var(--btnTextBG),
+        0px -2px 0 var(--btnTextBG),
+        -2px 0px 0 var(--btnTextBG);
 }
